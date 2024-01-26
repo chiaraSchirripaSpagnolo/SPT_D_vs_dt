@@ -1,4 +1,4 @@
-%% this file report the functions used in the different steps of the analysis
+%% this file reports the main functions used in the different steps of the analysis
 % (besides original utrack functions)
 
 %% analysis of exact trajectories
