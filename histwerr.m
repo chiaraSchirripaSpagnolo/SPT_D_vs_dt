@@ -3,8 +3,18 @@ function [r,rlog,s2r,s2rlog]=histwerr(xdata,dmin,dmax,dx,logmin,dlogx)
 % [r,rlog]=histwerr(xdata,dmin,dmax,dx,logmin,dlogx)
 % gives distribution of xdata(:,1) with std xdata(:,2) and weight
 % xdata(:,3) from dmin to dmax with spacing dx
-% r: bin center, bin end, hist, cumulative distr.
-% rlog: bin center exp(10), bin center, bin end exp(10), bin end, hist, cumulative distr.
+% r: matrix with columns: bin center, bin end, hist, cumulative distr.
+% rlog: matrix with column: bin center exp(10), bin center, bin end exp(10),...
+%       bin end, hist, cumulative distr.
+% s2r,s2rlog: matrices with columns: variance and uncertainties of histogram bins,
+%             uncertainties of normalized histogram bins.
+%
+% More details on the uncertainties in “Molecular insight on the altered membrane
+% trafficking of TrkA kinase dead mutants”. R. Amodeo, R. Nifosì, C. Giacomelli,
+% C. Ravelli, L. La Rosa, A. Callegari, M.L. Trincavelli, S. Mitola, S. Luin,
+% and L. Marchetti, Biochimica et Biophysica Acta (BBA) - Molecular Cell Research
+% 1867(2), 118614 (2019). Doi: 10.1016/j.bbamcr.2019.118614.
+
 no_data=false;
 if nargin==0 || isempty(xdata)
     nodata;
